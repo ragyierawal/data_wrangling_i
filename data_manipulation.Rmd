@@ -1,5 +1,5 @@
 ---
-title: "data_manipulation"
+title: "Data Manipulation"
 output: github_document
 ---
 
@@ -17,5 +17,35 @@ litters_df = janitor::clean_names(litters_df)
 
 pups_df = read_csv("data_import_examples/FAS_pups.csv")
 pups_df = janitor::clean_names(pups_df)
+```
+
+## Select function
+
+Let's select some columns 
+
+```{r}
+select(litters_df, group, litter_number)
+select(litters_df, group, gd0_weight, gd18_weight)
+
+select(litters_df, group, gd0_weight:gd_of_birth)
+select(litters_df, group, starts_with("pups"))
+# starts_with, ends_with, contains are three useful functions 
+
+select(litters_df, -litter_number)
+# can use - to get rid of a specific column
+
+# can also rename columns: 
+select(litters_df, GROUP = group, litter_number) # renamed group to GROUP 
+rename(litters_df, GROUP = group) # the rename function doesn't do any selecting 
+
+# can rearrange columns using select function
+select(litters_df, litter_number, everything())
+relocate(litters_df, litter_number)
+
+select(pups_df, litter_number, sex, pd_ears)
+
+# to select only one column:
+select(litters_df, group)
+# pull(litters_df, group)
 ```
 
