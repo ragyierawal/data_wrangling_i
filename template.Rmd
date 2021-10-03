@@ -16,7 +16,7 @@ I want to import 'FAS_litters.csv'.
 ```{r}
 # setting a path to a specific document 
 ## press tab to get the documents to show up 
-litters_df = read_csv("data/FAS_litters.csv")
+litters_df = read_csv("data_import_examples/FAS_litters.csv")
 
 # don't use absolute paths 
 # don't used setwd() 
@@ -56,7 +56,7 @@ skimr::skim(litters_df)
 ## Arguments in 'read_csv"
 
 ```{r}
-litters_df = read_csv("data/FAS_litters.csv",
+litters_df = read_csv("data_import_examples/FAS_litters.csv",
                       skip = 5, 
                       col_names = FALSE,
                       na = "Low8")
@@ -66,7 +66,7 @@ litters_df = read_csv("data/FAS_litters.csv",
 ## Parsing Columns 
 
 ```{r}
-litters_data = read_csv(file = "./data/FAS_litters.csv",
+litters_data = read_csv(file = "data_import_examples/FAS_litters.csv",
   col_types = cols(
     Group = col_character(),
     `Litter Number` = col_character(),
@@ -86,21 +86,21 @@ litters_data = read_csv(file = "./data/FAS_litters.csv",
 Reading MLB data 
 
 ```{r}
-mlb11_df = read_excel("data/mlb11.xlsx")
+mlb11_df = read_excel("data_import_examples/mlb11.xlsx")
 ```
 
 LotR Words is next. 
 
 ```{r}
 # can choose which range of cells to read into R 
-fellow_df = read_excel("data/LotR_Words.xlsx", range = "B3:D6")
+fellow_df = read_excel("data_import_examples/LotR_Words.xlsx", range = "B3:D6")
 ```
 
 
 ## Read a SAS file 
 
 ```{r, eval = FALSE}
-pulse_df = read_sas("data/public_pulse_data.sas7bdat")
+pulse_df = read_sas("data_import_examples/public_pulse_data.sas7bdat)
 ```
 
 
@@ -109,7 +109,7 @@ pulse_df = read_sas("data/public_pulse_data.sas7bdat")
 'read.csv' doesn't give tibble and that's really bad
 
 ```{r, eval=FALSE}
-litters_df_base = read.csv("data/FAS_litters.csv")
+litters_df_base = read.csv("data_import_examples/FAS_litters.csv")
 # problems arise when trying to print this --> read.cvs always imports everything as a dataframe instead of a tibble 
 ```
 
@@ -119,7 +119,7 @@ litters_df_base = read.csv("data/FAS_litters.csv")
 there's a good way!
 
 ```{r}
-write_csv(fellow_df, "data/fellowship_words.csv")
+write_csv(fellow_df, "data_import_examples/fellowship_words")
 ```
 
 
